@@ -11,7 +11,7 @@ class Solution:
             f1 = 1
             while n > 1:
                 tot = f0 + f1
-                f0 = f1
+                f0 = f1 
                 f1 = tot
                 n-=1
 
