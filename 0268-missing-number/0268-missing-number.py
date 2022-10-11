@@ -11,11 +11,16 @@
 #                 return nums[j] + 1
         
 #         return nums[j] - 1
-class Solution(object):
-    def missingNumber(self, nums):
-        l=len(nums)
-        m=min(nums)
-        for i in range(m,l+1,1):
-            if(i not in nums):
-                return i
-        return 0
+
+# class Solution(object):
+#     def missingNumber(self, nums):
+#         l=len(nums)
+#         m=min(nums)
+#         for i in range(m,l+1,1):
+#             if(i not in nums):
+#                 return i
+#         return 0
+
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        return (len(nums) * (len(nums) + 1))//2 - sum(nums)
