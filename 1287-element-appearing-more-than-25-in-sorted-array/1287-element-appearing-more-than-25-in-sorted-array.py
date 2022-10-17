@@ -4,3 +4,4 @@ class Solution:
         for i in range(len(arr)):
             if arr[i] == arr[i + n]:
                 return arr[i]
+        return None
