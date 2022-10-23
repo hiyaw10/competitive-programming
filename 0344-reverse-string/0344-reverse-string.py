@@ -3,9 +3,10 @@ class Solution:
         """
         Do not return anything, modify s in-place instead.
         """
-        
-        l, r = 0, (len(s) - 1)
-        while l < r:
-            s[l], s[r] = s[r], s[l]
-            r -= 1
-            l += 1
+        Stack = []
+        for c in s:
+            Stack.append(c)
+        i = 0
+        while Stack:
+            s[i] = Stack.pop()
+            i += 1
