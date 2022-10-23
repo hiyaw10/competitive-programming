@@ -3,11 +3,9 @@ class Solution:
         """
         Do not return anything, modify s in-place instead.
         """
-      
-   
-       
-        size = len(s)
-		
-		# reverse string by mirror image
-        for i in range(size//2):
-            s[i], s[-i-1] = s[-i-1], s[i]
+        
+        l, r = 0, (len(s) - 1)
+        while l < r:
+            s[l], s[r] = s[r], s[l]
+            r -= 1
+            l += 1
