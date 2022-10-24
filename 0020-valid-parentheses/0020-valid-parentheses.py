@@ -1,7 +1,6 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        #open brackets must be closed
-        #in the correct order(stack problem)
+       #stack problem
         stack = []
         Map = {")":"(", "}":"{", "]":"["}
         for c in s:
@@ -13,4 +12,3 @@ class Solution:
             else:
                 stack.append(c)
         return True if not stack else False
-                
