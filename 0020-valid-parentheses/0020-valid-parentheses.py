@@ -1,14 +1,13 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-       #stack problem
+        Map = {"}":"{", "]":"[", ")":"("}
         stack = []
-        Map = {")":"(", "}":"{", "]":"["}
-        for c in s:
-            if c in Map:
-                if stack and stack[-1] == Map[c]:
+        for char in s:
+            if char in Map:
+                if stack and stack[-1] == Map[char]:
                     stack.pop()
                 else:
                     return False
             else:
-                stack.append(c)
+                stack.append(char)
         return True if not stack else False
