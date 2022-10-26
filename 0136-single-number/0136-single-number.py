@@ -4,3 +4,4 @@ class Solution:
         a = dict(Counter(nums))
         b = [k for k, v in a.items() if v==1]
         return b[0]
+	  
