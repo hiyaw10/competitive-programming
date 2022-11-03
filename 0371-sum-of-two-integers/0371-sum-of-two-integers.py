@@ -1,3 +1,4 @@
 class Solution:
     def getSum(self, a: int, b: int) -> int:
-        return a + b
+        List = [a, b]
+        return sum(List)
