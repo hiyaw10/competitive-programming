@@ -4,9 +4,8 @@ class Solution:
         Do not return anything, modify s in-place instead.
         """
         stack = []
-        for c in s:
-            stack.append(c)
-            
+        for i in s:
+            stack.append(i)
         i = 0
         while stack:
             s[i] = stack.pop()
