@@ -4,8 +4,7 @@ class Solution:
         x1, y1 = coordinates[1]
         chanY = y1 - y0
         chanX = x1 - x0
-        xp = chanX*y0 - chanY*x0    # See analysis below
-
+        xp = chanX*y0 - chanY*x0   
         for x, y in coordinates:
             if chanX*y - chanY*x != xp:
                 return False
