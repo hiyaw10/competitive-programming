@@ -1,14 +1,14 @@
-class Solution(object):
-    def halvesAreAlike(self, s):
-        counter1 = 0
-        counter2 = 0
-        l, r = 0, len(s) / 2
-        while l < r and r < len(s):
+class Solution:
+    def halvesAreAlike(self, s: str) -> bool:
+        count1 = 0
+        count2 = 0
+        l, r = 0, len(s) - 1
+        while l < r:
             if s[l] in "aeiouAEIOU":
-                counter1 += 1
+                count1 += 1
             if s[r] in "aeiouAEIOU":
-                counter2 += 1
-            r += 1
+                count2 += 1
             l += 1
-        return counter1 == counter2
-            
+            r -= 1
+        return count1 == count2
+        
