@@ -1,0 +1,12 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+num = int(input())
+Library = {}
+for n in range(num):
+    word = input()
+    if word in Library:
+        Library[word] += 1
+    else:
+        Library[word] = 1 
+print (len(Library))
+for i in Library:
+    print (Library[i], end = " ")
