@@ -1,0 +1,8 @@
+if __name__ == '__main__':
+    n = int(input())
+    res = ""
+    x = n - 1 
+    while x >= 0:
+        res += str(n - x)
+        x -= 1
+    print(res)        
