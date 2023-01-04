@@ -13,8 +13,13 @@ class Solution:
             
             output.append("".join(Temp))
         for i in range(len(output)):
-            output[i] = output[i].rstrip()
+            output[i] = self.popemp(output[i])
             
         return output
                 
+    def popemp(self, x):
+        x = [i for i in x]
+        while x[-1] == " ":
+            x.pop()
+        return "".join(x)
         
