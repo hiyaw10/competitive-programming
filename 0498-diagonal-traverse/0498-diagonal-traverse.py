@@ -9,7 +9,7 @@ class Solution:
         result, intermediate = [], []
         
         for d in range(N + M - 1):
-            intermediate = []
+            intermediate.clear()
             
             r, c = 0 if d < M else d - M + 1, d if d < M else M - 1
             
