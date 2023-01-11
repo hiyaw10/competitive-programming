@@ -6,8 +6,6 @@ class DataStream:
         self.n = 0
         
         
-        
-
     def consec(self, num: int) -> bool:
         if num == self.v:
             self.n += 1
