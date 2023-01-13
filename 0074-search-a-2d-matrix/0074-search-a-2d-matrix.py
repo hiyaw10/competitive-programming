@@ -1,11 +1,14 @@
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        array = []
+        j = 0
         for i in range(len(matrix)):
-            for j in range(len(matrix[0])):
-                array.append(matrix[i][j])
-        arr1 = set(array)
-        if target in arr1:
+            if target >= matrix[i][0]:
+                   j = i
+        print(j)
+        SET = set(matrix[j])
+        if target in SET:
             return True
         return False
+        
+       
         
