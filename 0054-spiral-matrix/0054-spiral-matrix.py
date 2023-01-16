@@ -1,24 +1,39 @@
 class Solution(object):
     def spiralOrder(self, matrix):
-        """
-        :type matrix: List[List[int]]
-        :rtype: List[int]
-        """
-        visited = set()
-        cols, rows = len(matrix[0]), len(matrix)
-        row, col = 0, 0
-        d_row, d_col = 0, 1
-        result = []
-
-        for _ in range(cols * rows):
-            visited.add((row, col))
-            result.append(matrix[row][col])
-
-            if not (0 <= (row + d_row) < rows and 0 <= (col + d_col) < cols and (row + d_row, col + d_col) not in visited):
-                d_row, d_col = d_col, -d_row
-
-            row += d_row
-            col += d_col
-
-        return result
+        left, right = 0, len(matrix[0])
+        top, bottom = 0, len(matrix)
         
+        res = []
+        while left < right and top < bottom:
+            for i in range(left, right):
+                res.append(matrix[top][i])
+            top += 1
+            
+            for i in range(top, bottom):
+                res.append(matrix[i][right-1])
+            right -= 1
+            
+            if not (left<right and top < bottom):
+                break
+                
+            for i in range(right - 1, left - 1, -1):
+                res.append(matrix[bottom-1][i])
+            bottom -= 1
+            
+            for i in range(bottom-1, top-1, -1):
+                res.append(matrix[i][left])
+            left += 1
+        return res
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
