@@ -1,7 +1,13 @@
 class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
-        res = []
+        Map = {}
         for i in range(len(names)):
-            res.append([heights[i],names[i]])
-        res = sorted(res,reverse=True)
-        return [name for height,name in res]
+            Map[heights[i]] = names[i]
+        output = []
+        for i in range(len(heights)):
+            for j in range(len(heights) - 1):
+                if heights[j] < heights[j+1]:
+                    heights[j], heights[j+1] = heights[j+1], heights[j]
+        for i in heights:
+            output.append(Map[i])
+        return output
