@@ -1,24 +1,27 @@
 from collections import deque
 class Solution:
     def longestSubarray(self, nums: List[int], limit: int) -> int:
-        hi = deque()
-        lo = deque()
-        ans = 0
-        i = 0
-        for j in range(len(nums)):
-            while hi and nums[hi[-1]] <= nums[j]:
-                hi.pop()
-            while lo and nums[lo[-1]] >= nums[j]:
-                lo.pop()
-            hi.append(j)
-            lo.append(j)
-            if len(hi) == 1:   
-                while nums[hi[0]] - nums[lo[0]] > limit:
-                    ans = max(ans, j - i)
-                    i = lo.popleft() + 1
-            elif len(lo) == 1:
-                while nums[hi[0]] - nums[lo[0]] > limit:
-                    ans = max(ans, j - i)
-                    i = hi.popleft() + 1
-        return max(ans, j - i + 1)
+        minQ = deque()
+        maxQ = deque()
         
+        left, ans = 0, 0
+        
+        #when do we add to the minQ(trying the list )
+        for right in range(len(nums)):
+            while minQ and minQ[-1] > nums[right]:
+                minQ.pop()
+            minQ.append(nums[right])
+        #when do we add to the maxQ
+            while maxQ and maxQ[-1] < nums[right]:
+                maxQ.pop()
+            maxQ.append(nums[right])
+        #check the subarray
+            while limit < abs(maxQ[0] - minQ[0]):
+                val = nums[left]
+                if maxQ[0] == val:
+                    maxQ.popleft()
+                if minQ[0] == val:
+                    minQ.popleft()
+                left += 1
+            ans = max(ans, right-left+1)
+        return ans
