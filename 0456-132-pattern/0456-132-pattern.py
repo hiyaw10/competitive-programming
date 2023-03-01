@@ -1,9 +1,9 @@
 class Solution:
     def find132pattern(self, nums: List[int]) -> bool:
-        stack = [] #we need a stack that contains [value, min(sofr))
+        stack = [] 
         Min = nums[0]
         
-        for n in nums[1:]:
+        for n in nums:
             while stack and stack[-1][0] < n:
                 stack.pop()
             if stack and n < stack[-1][0] and n > stack[-1][1]:
