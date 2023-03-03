@@ -3,17 +3,15 @@
 
 class Solution:
     def firstBadVersion(self, n: int) -> int:
-        left = 1
-        right = n
-        result = 1
+        low, high = 1, n
+        ans = 0
         
-        #we used binary search, mid being the number + 1 halved.
-        while left<=right:
-            mid = (left+right)//2
+        while low <= high:
+            mid = low  + (high - low) // 2
+            
             if isBadVersion(mid) == False:
-                left = mid+1
+                low = mid + 1
             else:
-                right = mid-1
-                result = mid
-                
-        return result
+                high = mid - 1
+                ans = mid
+        return ans
