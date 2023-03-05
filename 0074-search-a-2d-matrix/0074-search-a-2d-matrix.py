@@ -4,7 +4,7 @@ class Solution:
         for i in range(len(matrix)):
             if target >= matrix[i][0]:
                    j = i
-        print(j)
+        
         SET = set(matrix[j])
         if target in SET:
             return True
