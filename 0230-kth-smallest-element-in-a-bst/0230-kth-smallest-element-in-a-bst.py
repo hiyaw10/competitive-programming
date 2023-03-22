@@ -11,6 +11,6 @@ class Solution:
             if node:
                 inOrder(node.left)
                 res.append(node.val)
-                return inOrder(node.right)
+                inOrder(node.right)
         inOrder(root)
         return res[k-1]
